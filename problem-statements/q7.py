@@ -1,3 +1,5 @@
+#method2
+#from collections import Counter
 def count_inventory(fruit_list: list[str]) -> dict[str, int]:
        
     inventory = {}
@@ -9,4 +11,5 @@ def count_inventory(fruit_list: list[str]) -> dict[str, int]:
             inventory[fruit] = 1
     
     return inventory
+   #return dict(Counter(fruit_list)) 
 #Team name-{CLP}
