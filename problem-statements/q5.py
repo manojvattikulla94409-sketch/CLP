@@ -4,32 +4,33 @@ def calculate(expression: str) -> float:
     expression = expression.replace(" ", "")
 
     stack = []
-    num = 0
+    number= 0
     sign = '+'
     i = 0
 
     while i < len(expression):
-        char = expression[i]
+        ch = expression[i]
 
         # Building the number until a operator occurs
-        if char.isdigit():
-            num = 0
+        if ch.isdigit():
+            number= 0
+            
             while i < len(expression) and expression[i].isdigit():
-                num = num * 10 + int(expression[i])
+                number = number * 10 + int(expression[i])
                 i += 1
             i -= 1
 
             if sign == '+':
-                stack.append(num)
+                stack.append(number)
             elif sign == '-':
-                stack.append(-num)
+                stack.append(-number)
             elif sign == '*':
-                stack.append(stack.pop() * num)
+                stack.append(stack.pop() * number)
             elif sign == '/':
-                stack.append(stack.pop() / num)
+                stack.append(stack.pop() / number)
 
-        elif char in '+-*/':
-            sign = char
+        elif ch in '+-*/':
+            sign = ch
 
         i += 1
 
